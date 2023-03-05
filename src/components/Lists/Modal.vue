@@ -38,6 +38,11 @@ export default {
     line-height: 1.25rem;
     padding: .5rem .75rem;
   }
+  
+  .k-menu-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
   .k-form-actions {
     display: flex;

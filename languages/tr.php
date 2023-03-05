@@ -10,6 +10,7 @@ return [
     'editor.label.url' => 'Url',
     'editor.label.text' => 'Metin',
     'editor.label.title' => 'Başlık',
+    'editor.label.icon' => 'Icon',
     'editor.label.popup' => 'Yeni pencere',
     'editor.menu.close' => 'Kapat',
     'editor.menu.edit' => 'Düzenle',

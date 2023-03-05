@@ -15,6 +15,7 @@ return [
                 'url' => $child->url()->value(),
                 'text' => $child->text()->value(),
                 'title' => $child->title()->value(),
+                'icon' => $child->icon()->value(),
                 'popup' => $child->popup()->toBool(),
                 'isOpen' => kirby()->url('current') === $child->url()->value(),
                 'children' => $children,

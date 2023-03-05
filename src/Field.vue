@@ -87,6 +87,13 @@
               </k-column>
 
               <k-column width="1/2">
+                <k-text-field
+                    v-bind:label="$t('editor.label.icon')"
+                    v-model="item.icon">
+                </k-text-field>
+              </k-column>
+
+              <k-column width="1/2">
                 <k-toggle-field
                     v-bind:label="$t('editor.label.popup')"
                     v-model="item.popup">
@@ -206,13 +213,13 @@
           </k-text>
         </k-column>
 
-        <k-column width="1/2">
+        <!-- <k-column width="1/2">
           <k-text
               theme="help"
               class="k-field-help k-field-depth">
             {{ $t('help.depth.text') }} <strong>{{ computed_levels }}</strong>
           </k-text>
-        </k-column>
+        </k-column> -->
       </k-grid>
     </template>
 
@@ -230,6 +237,7 @@ export default {
     help: String,
     value: Array,
     label: String,
+    language: String,
     levels: Number,
     disabled: Boolean,
     required: Boolean,
@@ -271,7 +279,10 @@ export default {
       this.modal = {type: '', status: false}
     },
     action_fetch(data) {
-      this.$api.get(this.endpoints.field + '/listings/' + data)
+
+      let language = this.language ?? 'fr';
+
+      this.$api.get(this.endpoints.field + '/listings/' + language + '/' + data)
           .then((response) => {
             this.query = response
           })
@@ -297,7 +308,7 @@ export default {
         text: data.text,
         url: data.url,
         popup: data.popup,
-        uuid: Math.random().toString(36).substring(2, 15)
+        uuid: Math.random().toString(36).substring(2, 15) // NOT page uuid!
       })
     }
   },

@@ -3,20 +3,21 @@
 return function () {
     return [
         [
-            'pattern' => 'listings/(:all)',
+            'pattern' => 'listings/(:all)/(:all)',
             'method' => 'GET',
-            'action' => function ($all) {
+            'action' => function ($language, $path) {
                 $content = [];
                 $breadcrumbs = [];
-                $getData = $all !== 'site' ? true : false;
-                $data = $getData ? page($all) : site();
+                $getData = $path !== 'site' ? true : false;
+                $data = $getData ? page($path) : site();
+
 
                 if ($data->hasChildren()) {
                     if ($getData) {
                         foreach ($data->children()->first()->parents()->flip() as $parent) {
                             array_push($breadcrumbs,[
                                 'id' => $parent->id(),
-                                'title' => $parent->title()->value()
+                                'title' => $parent->content($language)->title()->value()
                             ]);
                         }
                     }
@@ -24,8 +25,8 @@ return function () {
                     foreach ($data->children() as $item) {
                         array_push($content, [
                             'id' => $item->id(),
-                            'url' => $item->url(),
-                            'text' => $item->title()->value(),
+                            'url' => $item->url($language),
+                            'text' => $item->content($language)->title()->value(),
                             'count' => $item->index()->count(),
                             'children' => []
                         ]);

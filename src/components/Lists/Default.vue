@@ -9,7 +9,7 @@
           v-on:action="item_action"
           v-bind:options="[
 					{
-						icon: 'add',
+						icon: active ? 'collapse' : 'edit',
 						text: active ? $t('editor.menu.close') : $t('editor.menu.edit'),
 						click: { type: 'edit' }
 					},
@@ -36,15 +36,15 @@
         </div>
         <div class="k-form-footer">
           <k-button
-              icon="remove"
-              v-on:click="item_action({ type: 'edit' })">
-            {{ $t('editor.menu.close') }}
-          </k-button>
-          <k-button
               icon="trash"
               theme="negative"
               v-on:click="item_action({ type: 'remove', haystack: navigation, needle: item.uuid })">
             {{ $t('editor.menu.remove') }}
+          </k-button>
+          <k-button
+              icon="collapse"
+              v-on:click="item_action({ type: 'edit' })">
+            {{ $t('editor.menu.close') }}
           </k-button>
         </div>
       </div>

@@ -10,6 +10,7 @@ return [
     'editor.label.url' => 'Url',
     'editor.label.text' => 'Text',
     'editor.label.title' => 'Title',
+    'editor.label.icon' => 'Icon',
     'editor.label.popup' => 'Popup',
     'editor.menu.close' => 'Close Item',
     'editor.menu.edit' => 'Edit Item',
