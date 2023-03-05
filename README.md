@@ -28,6 +28,7 @@ fields:
     label: Navigation
     type: navigation
     levels: 5
+    language: fr # default: fr
     help: Description of menu or where it is used
     width: 1/2
 ```
