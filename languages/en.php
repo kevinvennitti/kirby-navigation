@@ -11,6 +11,7 @@ return [
     'editor.label.text' => 'Text',
     'editor.label.title' => 'Title',
     'editor.label.icon' => 'Icon',
+    'editor.label.page_uuid' => 'Uuid',
     'editor.label.popup' => 'Popup',
     'editor.menu.close' => 'Close Item',
     'editor.menu.edit' => 'Edit Item',

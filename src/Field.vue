@@ -100,10 +100,17 @@
                 </k-toggle-field>
               </k-column>
 
-              <k-column width="1/2">
+              <!-- <k-column width="1/2">
                 <k-text-field
                     v-bind:label="$t('editor.label.url')"
                     v-model="item.url">
+                </k-text-field>
+              </k-column> -->
+
+              <k-column width="1/2">
+                <k-text-field
+                    v-bind:label="$t('editor.label.page_uuid')"
+                    v-model="item.page_uuid">
                 </k-text-field>
               </k-column>
             </k-grid>
@@ -191,6 +198,13 @@
               </k-column>
 
               <k-column>
+                <k-text-field
+                    v-bind:label="$t('editor.label.page_uuid')"
+                    v-model="item.page_uuid">
+                </k-text-field>
+              </k-column>
+
+              <k-column>
                 <k-toggle-field
                     v-bind:label="$t('editor.label.popup')"
                     v-model="item.popup">
@@ -253,7 +267,7 @@ export default {
       navigation: this.value || [],
       modal: {type: '', status: false},
       query: {content: [], breadcrumbs: []},
-      item: {url: '', text: '', popup: false}
+      item: {url: '', page_uuid: '', text: '', popup: false}
     }
   },
   watch: {
@@ -274,7 +288,7 @@ export default {
     modal_submit() {
       if (this.modal.type === 'custom') {
         this.action_add(this.item)
-        this.item = {url: '', text: '', popup: false}
+        this.item = {url: '', page_uuid: '', text: '', popup: false}
       }
       this.modal = {type: '', status: false}
     },
@@ -307,6 +321,7 @@ export default {
         id: data.id,
         text: data.text,
         url: data.url,
+        page_uuid: data.page_uuid,
         popup: data.popup,
         uuid: Math.random().toString(36).substring(2, 15) // NOT page uuid!
       })

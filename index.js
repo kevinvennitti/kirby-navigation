@@ -1532,11 +1532,11 @@
           _vm.$set(item, "icon", $$v);
         }, expression: "item.icon" } })], 1), _c("k-column", { attrs: { "width": "1/2" } }, [_c("k-toggle-field", { attrs: { "label": _vm.$t("editor.label.popup") }, model: { value: item.popup, callback: function($$v) {
           _vm.$set(item, "popup", $$v);
-        }, expression: "item.popup" } })], 1), _c("k-column", { attrs: { "width": "1/2" } }, [_c("k-text-field", { attrs: { "label": _vm.$t("editor.label.url") }, model: { value: item.url, callback: function($$v) {
-          _vm.$set(item, "url", $$v);
-        }, expression: "item.url" } })], 1)], 1)];
+        }, expression: "item.popup" } })], 1), _c("k-column", { attrs: { "width": "1/2" } }, [_c("k-text-field", { attrs: { "label": _vm.$t("editor.label.page_uuid") }, model: { value: item.page_uuid, callback: function($$v) {
+          _vm.$set(item, "page_uuid", $$v);
+        }, expression: "item.page_uuid" } })], 1)], 1)];
       }, proxy: true }], null, true) })];
-    } }], null, false, 3342871164), model: { value: _vm.navigation, callback: function($$v) {
+    } }], null, false, 2872841404), model: { value: _vm.navigation, callback: function($$v) {
       _vm.navigation = $$v;
     }, expression: "navigation" } }) : _c("k-empty", { attrs: { "icon": "page" } }, [_vm._v(" " + _vm._s(_vm.$t("help.empty.text")) + " ")]), _vm.modal.status ? _c("modalDefault", { attrs: { "modal": _vm.modal.status }, on: { "modal_close": _vm.modal_close, "modal_submit": _vm.modal_submit }, scopedSlots: _vm._u([{ key: "modal_header", fn: function() {
       return [_c("header", { staticClass: "k-pages-dialog-navbar" }, [_vm.modal.type === "default" ? [_vm.query.breadcrumbs.length > 0 ? _c("k-button", { attrs: { "icon": "angle-left" }, on: { "click": function($event) {
@@ -1559,10 +1559,12 @@
         _vm.$set(_vm.item, "text", $$v);
       }, expression: "item.text" } })], 1), _c("k-column", [_c("k-text-field", { attrs: { "label": _vm.$t("editor.label.url") }, model: { value: _vm.item.url, callback: function($$v) {
         _vm.$set(_vm.item, "url", $$v);
-      }, expression: "item.url" } })], 1), _c("k-column", [_c("k-toggle-field", { attrs: { "label": _vm.$t("editor.label.popup") }, model: { value: _vm.item.popup, callback: function($$v) {
+      }, expression: "item.url" } })], 1), _c("k-column", [_c("k-text-field", { attrs: { "label": _vm.$t("editor.label.page_uuid") }, model: { value: _vm.item.page_uuid, callback: function($$v) {
+        _vm.$set(_vm.item, "page_uuid", $$v);
+      }, expression: "item.page_uuid" } })], 1), _c("k-column", [_c("k-toggle-field", { attrs: { "label": _vm.$t("editor.label.popup") }, model: { value: _vm.item.popup, callback: function($$v) {
         _vm.$set(_vm.item, "popup", $$v);
       }, expression: "item.popup" } })], 1)], 1)], 1)]];
-    }, proxy: true }], null, false, 2887473472) }) : _vm._e()], 1);
+    }, proxy: true }], null, false, 4067362048) }) : _vm._e()], 1);
   };
   var staticRenderFns = [];
   render._withStripped = true;
@@ -1588,7 +1590,7 @@
         navigation: this.value || [],
         modal: { type: "", status: false },
         query: { content: [], breadcrumbs: [] },
-        item: { url: "", text: "", popup: false }
+        item: { url: "", page_uuid: "", text: "", popup: false }
       };
     },
     watch: {
@@ -1609,7 +1611,7 @@
       modal_submit() {
         if (this.modal.type === "custom") {
           this.action_add(this.item);
-          this.item = { url: "", text: "", popup: false };
+          this.item = { url: "", page_uuid: "", text: "", popup: false };
         }
         this.modal = { type: "", status: false };
       },
@@ -1639,6 +1641,7 @@
           id: data.id,
           text: data.text,
           url: data.url,
+          page_uuid: data.page_uuid,
           popup: data.popup,
           uuid: Math.random().toString(36).substring(2, 15)
         });

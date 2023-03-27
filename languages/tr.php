@@ -11,6 +11,7 @@ return [
     'editor.label.text' => 'Metin',
     'editor.label.title' => 'Başlık',
     'editor.label.icon' => 'Icon',
+    'editor.label.page_uuid' => 'Uuid',
     'editor.label.popup' => 'Yeni pencere',
     'editor.menu.close' => 'Kapat',
     'editor.menu.edit' => 'Düzenle',
